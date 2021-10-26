@@ -1,0 +1,49 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+
+        float change;
+        System.out.println("Please input the amount of change owed.");
+        change = keyboard.nextFloat();
+        if(change < 0)
+        {
+            System.out.println("Please enter a positive value");
+        }
+
+        int totalCents = Math.round(change * 100);
+
+        System.out.println(totalCents);
+
+        int numberOfQuarters;
+        int numberOfDimes;
+        int numberOfNickels;
+        int numberOfPennies;
+        int newCents;
+        int leftOverCents = 0;
+        if(totalCents > 0)
+        {
+            numberOfQuarters = Math.round(totalCents / 25);
+            System.out.println("Quarters due: " + numberOfQuarters);
+            int totalCents2 = totalCents - numberOfQuarters * 25;
+
+            numberOfDimes = Math.round(totalCents2 / 10);
+            System.out.println("Dimes due: " + numberOfDimes);
+            int totalCents3 = totalCents2 - numberOfDimes * 10;
+
+            numberOfNickels = Math.round(totalCents3 / 5);
+            System.out.println("Nickels due: " + numberOfNickels);
+            int totalCents4 = totalCents3 - numberOfNickels * 5;
+
+            numberOfPennies = Math.round(totalCents4 / 1);
+            System.out.println("Pennies due: " + numberOfPennies);
+            int totalCentsFinal = totalCents4 - numberOfPennies *1;
+            
+        }
+    }
+}
